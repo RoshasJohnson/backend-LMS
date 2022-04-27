@@ -13,6 +13,11 @@ from django.http import JsonResponse,HttpResponse
 
 @api_view(['GET'])   
 def get_books(request):
+    """
+    This is a function based view which only allowed GET method
+
+    """
+
     books = Book.objects.all()
     serializer = BookSerializer(books, many=True)
     return Response(serializer.data)
@@ -22,7 +27,8 @@ def get_books(request):
 class  BookDetails(APIView):
 
     """
-    PRead,edit, delete operations
+    Class based view for all CRUD operations
+    permissions allowed to only authenticated admin
     """
     permission_classes=[permissions.IsAuthenticated]
 
@@ -59,7 +65,11 @@ class  BookDetails(APIView):
 
 
 class AdminViewSet(APIView):
-
+    """
+    Class based view for listing and save the new admins
+    permissions allowed to only authenticated admin
+    
+    """
     permission_classes=[permissions.AllowAny]  
 
 
