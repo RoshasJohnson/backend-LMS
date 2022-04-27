@@ -22,8 +22,6 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('', include('api.urls')),
 
-    path('api-auth/', include('drf_social_oauth2.urls',namespace='drf'))
-  
     
 ]
     

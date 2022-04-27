@@ -24,7 +24,6 @@ class  BookDetails(APIView):
     """
     PRead,edit, delete operations
     """
-
     permission_classes=[permissions.IsAuthenticated]
 
     def get_object(self,id):
@@ -63,7 +62,7 @@ class AdminViewSet(APIView):
 
     permission_classes=[permissions.AllowAny]  
 
-    
+
     def list(self,request):
         admins  = Account.objects.all()
         serializer = BookSerializer(admins)
